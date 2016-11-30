@@ -13,29 +13,27 @@ import rx.Observable;
  * @time 2016-11-30
  */
 
-public class RxAnimation {
+public final class RxAnimation {
 
     @CheckResult
     @NonNull
-    public static Observable<Animation> onStart(@NonNull Animation animation) {
+    public static Observable<Animation> onStart(@NonNull final Animation animation) {
         Preconditions.checkNotNull(animation, "animation == null");
         return Observable.create(new AnimationStartOnSubscribe(animation));
     }
 
     @CheckResult
     @NonNull
-    public static Observable<Animation> onEnd(@NonNull Animation animation) {
+    public static Observable<Animation> onEnd(@NonNull final Animation animation) {
         Preconditions.checkNotNull(animation, "animation == null");
         return Observable.create(new AnimationEndOnSubscribe(animation));
     }
 
     @CheckResult
     @NonNull
-    public static Observable<Animation> onRepeat(@NonNull Animation animation) {
+    public static Observable<Animation> onRepeat(@NonNull final Animation animation) {
         Preconditions.checkNotNull(animation, "animation == null");
         return Observable.create(new AnimationRepeatOnSubscribe(animation));
     }
-
-
 
 }
