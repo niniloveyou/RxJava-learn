@@ -1,7 +1,9 @@
 package deadline.library;
 
 import android.animation.ValueAnimator;
+import android.gesture.Prediction;
 
+import deadline.library.internal.Preconditions;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.MainThreadSubscription;
@@ -21,6 +23,7 @@ final class AnimatorUpdateOnSubscribe implements Observable.OnSubscribe<ValueAni
     @Override
     public void call(final Subscriber<? super ValueAnimator> subscriber) {
 
+        Preconditions.checkUiThread();
         final ValueAnimator.AnimatorUpdateListener listener = new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
