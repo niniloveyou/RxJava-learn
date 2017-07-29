@@ -22,6 +22,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.3'
     compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile project(':library')
